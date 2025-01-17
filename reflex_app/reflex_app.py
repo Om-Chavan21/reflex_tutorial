@@ -3,7 +3,7 @@
 import reflex as rx
 from rxconfig import config
 from .ui.base import base_page
-from . import pages
+from . import pages, navigation
 
 
 class State(rx.State):
@@ -14,6 +14,9 @@ class State(rx.State):
 
     def set_label(self, name: str):
         self.label = f"My name is {name}"
+
+    def did_click(self):
+        print("clicked")
 
     ...
 
@@ -28,7 +31,7 @@ def index() -> rx.Component:
                 size="5",
             ),
             rx.input(on_change=State.set_label, placeholder="Enter your name"),
-            rx.link(rx.button("wassappppout"), href="/about"),
+            rx.link(rx.button("about page"), href="/about"),
             spacing="5",
             justify="center",
             min_height="85vh",
@@ -43,5 +46,6 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
-app.add_page(pages.about_page, route="/about")
-app.add_page(pages.pricing_page, route="/pricing")
+app.add_page(pages.about_page, route=navigation.routes.ABOUT_US_ROUTE)
+app.add_page(pages.pricing_page, route=navigation.routes.PRICING_ROUTE)
+app.add_page(pages.contact_us_page, route=navigation.routes.CONTACT_US_ROUTE)
