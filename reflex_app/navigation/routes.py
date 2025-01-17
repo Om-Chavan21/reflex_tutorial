@@ -1,4 +1,5 @@
 HOME_ROUTE = "/"
 ABOUT_US_ROUTE = "/about-us"
-CONTACT_US_ROUTE = "/contact-us"
+CONTACT_US_ROUTE = "/contact"
 PRICING_ROUTE = "/pricing-new"
+CONTACT_ENTRIES_ROUTE = "/contact/entries"
